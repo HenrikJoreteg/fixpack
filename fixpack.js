@@ -25,7 +25,7 @@ function sortObjectKeysAlphabetically(object) {
 
 function fixPack() {
     var out = {};
-    var file = __dirname + '/package.json';
+    var file = process.cwd() + '/package.json';
     var pack = ALCE.parse(fs.readFileSync(file, {encoding: 'utf8'}));
     var key;
 
