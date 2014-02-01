@@ -1,0 +1,29 @@
+{
+  "name": "fixpack",
+  "description": "cli tool that cleans up package.json files.",
+  "version": "0.0.0",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "bin": "./fixpack.js",
+  "bugs": {
+    "url": "https://github.com/henrikjoreteg/fixpack/issues"
+  },
+  "dependencies": {
+    "alce": "1.0.0",
+    "colors": "*"
+  },
+  "homepage": "https://github.com/henrikjoreteg/fixpack",
+  "keywords": [
+    "package",
+    "cleanup"
+  ],
+  "license": "MIT",
+  "main": "fixpack.js",
+  "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/henrikjoreteg/fixpack"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
