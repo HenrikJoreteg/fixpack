@@ -9,13 +9,10 @@ It will re-write your package.json file as follows:
 - version third
 - author fourth
 - all other keys in alphabetical order
-- It will sort dependencies and devDependencies alphabetically
+- dependencies and devDependencies sorted alphabetically
 
 It will warn you if any of these are missing:
 
-- author
-- repository
-- keywords
 - author
 - repository
 - keywords
@@ -26,7 +23,7 @@ It will warn you if any of these are missing:
 
 Fix all indenting to 2 spaces.
 
-Oh, an it will tolerate improperly quoted and comma'd JSON thanks to [ALCE](https://npmjs.org/package/alce).
+Oh, and it will tolerate improperly quoted and comma'd JSON thanks to [ALCE](https://npmjs.org/package/alce).
 
 ## Usage
 
@@ -50,7 +47,7 @@ npm i cool_package --save && fixpack
 
 ## Credits
 
-This embarassing display of insanity, type-A-ness, and OCD brought to you by [@HenrikJoreteg](http://twitter.com/henrikjoreteg).
+This embarrassing display of insanity, type-A-ness, and OCD brought to you by [@HenrikJoreteg](http://twitter.com/henrikjoreteg).
 
 ## License
 
