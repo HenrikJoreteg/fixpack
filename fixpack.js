@@ -4,6 +4,7 @@ var colors = require('colors');
 var required = ['name', 'version'];
 var warn = ['author', 'repository', 'keywords', 'main', 'bugs', 'homepage', 'license'];
 var ALCE = require('alce');
+var os = require('os');
 
 
 function checkMissing(pack) {
@@ -52,7 +53,7 @@ function fixPack() {
     });
 
     // write it out
-    fs.writeFileSync(file, JSON.stringify(out, null, 2), {encoding: 'utf8'});
+    fs.writeFileSync(file, JSON.stringify(out, null, 2) + os.EOL, {encoding: 'utf8'});
 
     console.log('package.json'.bold + ' fixed'.green + '!');
 }
