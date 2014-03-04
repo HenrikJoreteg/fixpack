@@ -10,6 +10,7 @@ It will re-write your package.json file as follows:
 - author fourth
 - all other keys in alphabetical order
 - dependencies and devDependencies sorted alphabetically
+- append operating system appropriate newline at the end of the file
 
 It will warn you if any of these are missing:
 
@@ -44,6 +45,11 @@ fixpack
 ```
 npm i cool_package --save && fixpack
 ```
+
+## Changelog
+
+- 0.0.2 [diff](https://github.com/HenrikJoreteg/fixpack/compare/v0.0.1...v0.0.2) - EOF newline
+- 0.0.1 - initial release
 
 ## Credits
 
