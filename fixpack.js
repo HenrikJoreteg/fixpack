@@ -58,4 +58,11 @@ function fixPack() {
     console.log('package.json'.bold + ' fixed'.green + '!');
 }
 
-fixPack();
+// run fixPack if package.json exists, otherwise output error
+fs.exists('package.json', function(exists) {
+  if (exists) {
+    fixPack();
+  } else {
+    console.log('Error: package.json does not exist.');
+  }
+});
