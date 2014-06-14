@@ -2,7 +2,7 @@
 var fs = require('fs');
 var colors = require('colors');
 var required = ['name', 'version'];
-var warn = ['author', 'repository', 'keywords', 'main', 'bugs', 'homepage', 'license'];
+var warn = ['description', 'author', 'repository', 'keywords', 'main', 'bugs', 'homepage', 'license'];
 var ALCE = require('alce');
 var os = require('os');
 
