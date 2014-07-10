@@ -11,9 +11,11 @@ function checkMissing(pack) {
     required.forEach(function (key) {
         if (!pack[key]) throw new Error('package.json files must have a ' + key);
     });
-    warn.forEach(function (key) {
-        if (!pack[key]) console.log(('missing ' + key).yellow);
-    });
+    if (!pack["private"]) {
+        warn.forEach(function (key) {
+            if (!pack[key]) console.log(('missing ' + key).yellow);
+        });
+    }
 }
 
 function sortObjectKeysAlphabetically(object) {
