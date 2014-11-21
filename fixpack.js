@@ -48,7 +48,7 @@ function fixPack() {
     }
 
     // sort some sub items alphabetically
-    ['dependencies', 'devDependencies', 'jshintConfig'].forEach(function (key) {
+    ['dependencies', 'devDependencies', 'jshintConfig', 'scripts'].forEach(function (key) {
         if (out[key]) out[key] = sortObjectKeysAlphabetically(out[key]);
     });
 
