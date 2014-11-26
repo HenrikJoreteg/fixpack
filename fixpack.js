@@ -7,12 +7,12 @@ var ALCE = require('alce');
 var os = require('os');
 
 
-function checkMissing(pack) {
+function checkMissing(pack, log) {
     required.forEach(function (key) {
         if (!pack[key]) throw new Error('package.json files must have a ' + key);
     });
     warn.forEach(function (key) {
-        if (!pack[key]) console.log(('missing ' + key).yellow);
+        if (!pack[key] && log) console.log(('missing ' + key).yellow);
     });
 }
 
@@ -24,9 +24,8 @@ function sortObjectKeysAlphabetically(object) {
     return sorted;
 }
 
-function fixPack() {
+module.exports = function (file, log) {
     var out = {};
-    var file = process.cwd() + '/package.json';
     var pack = ALCE.parse(fs.readFileSync(file, {encoding: 'utf8'}));
     var key;
 
@@ -55,7 +54,5 @@ function fixPack() {
     // write it out
     fs.writeFileSync(file, JSON.stringify(out, null, 2) + os.EOL, {encoding: 'utf8'});
 
-    console.log('package.json'.bold + ' fixed'.green + '!');
-}
-
-fixPack();
+    if (log) console.log('package.json'.bold + ' fixed'.green + '!');
+};

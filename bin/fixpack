@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+var fixpack = require('../fixpack');
+
+fixpack(process.cwd() + '/package.json', true);
