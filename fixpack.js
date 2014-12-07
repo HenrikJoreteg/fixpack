@@ -52,7 +52,7 @@ module.exports = function (file, log) {
     });
 
     // write it out
-    fs.writeFileSync(file, JSON.stringify(out, null, 2) + os.EOL, {encoding: 'utf8'});
+    fs.writeFileSync(file, JSON.stringify(out, null, 2) + '\n', {encoding: 'utf8'});
 
     if (log) console.log('package.json'.bold + ' fixed'.green + '!');
 };
