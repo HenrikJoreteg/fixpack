@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+var path    = require('path');
 var fixpack = require('../fixpack');
+var args    = process.argv.slice(2);
+var files   = (args.length !== 0) ? args : ['package.json', 'bower.json'];
 
-fixpack(process.cwd() + '/package.json', true);
+files.forEach(function(file){
+	fixpack(path.resolve(file), true);
+});
