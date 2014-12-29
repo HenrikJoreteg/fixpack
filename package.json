@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "alce": "1.0.0",
-    "chalk": "*"
+    "colors": "*"
   },
   "homepage": "https://github.com/henrikjoreteg/fixpack",
   "keywords": [
