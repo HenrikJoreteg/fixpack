@@ -24,6 +24,10 @@ function sortObjectKeysAlphabetically(object) {
     return sorted;
 }
 
+function sortKeywordsAlphabetically(object) {
+    return object.keywords.sort();
+}
+
 module.exports = function (file, log) {
     var out = {};
     var pack = ALCE.parse(fs.readFileSync(file, {encoding: 'utf8'}));
@@ -50,6 +54,11 @@ module.exports = function (file, log) {
     ['dependencies', 'devDependencies', 'jshintConfig', 'scripts'].forEach(function (key) {
         if (out[key]) out[key] = sortObjectKeysAlphabetically(out[key]);
     });
+
+    // sort keywords
+    if ('keywords' in out) {
+      sortKeywordsAlphabetically(out);
+    }
 
     // write it out
     fs.writeFileSync(file, JSON.stringify(out, null, 2) + os.EOL, {encoding: 'utf8'});
