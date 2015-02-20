@@ -1,17 +1,18 @@
 #!/usr/bin/env node
 var fs = require('fs');
-var colors = require('colors');
 var required = ['name', 'version'];
-var warn = ['description', 'author', 'repository', 'keywords', 'main', 'bugs', 'homepage', 'license'];
+var warnList = ['description', 'author', 'repository', 'keywords', 'main', 'bugs', 'homepage', 'license'];
+var privateWarnList = ['description', 'main'];
 var ALCE = require('alce');
-var os = require('os');
+require('colors');
 
 
 function checkMissing(pack, log) {
+    var warnItems = pack.private ? privateWarnList : warnList;
     required.forEach(function (key) {
         if (!pack[key]) throw new Error('package.json files must have a ' + key);
     });
-    warn.forEach(function (key) {
+    warnItems.forEach(function (key) {
         if (!pack[key] && log) console.log(('missing ' + key).yellow);
     });
 }
