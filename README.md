@@ -104,6 +104,7 @@ The available options and their defaults shown below:
 
 ## Changelog
 
+- 2.0.1 - don't error on missing bower file by default.
 - 2.0.0 - configurable via `.fixpackrc` file using rc module.
 - x.x.x - unknown miscellaneous madness and poor version tracking
 - 0.0.2 [diff](https://github.com/HenrikJoreteg/fixpack/compare/v0.0.1...v0.0.2) - EOF newline
