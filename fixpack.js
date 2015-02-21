@@ -25,6 +25,10 @@ function sortObjectKeysAlphabetically(object) {
     return sorted;
 }
 
+function sortKeywordsAlphabetically(object) {
+    return object.keywords.sort();
+}
+
 module.exports = function (file, log) {
     if (!fs.existsSync(file)) {
         console.log(('No such file: ' + file).red);
@@ -55,6 +59,11 @@ module.exports = function (file, log) {
     ['dependencies', 'devDependencies', 'jshintConfig', 'scripts'].forEach(function (key) {
         if (out[key]) out[key] = sortObjectKeysAlphabetically(out[key]);
     });
+
+    // sort keywords
+    if ('keywords' in out) {
+      sortKeywordsAlphabetically(out);
+    }
 
     // write it out
     fs.writeFileSync(file, JSON.stringify(out, null, 2) + '\n', {encoding: 'utf8'});
