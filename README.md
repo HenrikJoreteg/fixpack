@@ -27,7 +27,7 @@ Fix all indenting to 2 spaces.
 
 Oh, and it will tolerate improperly quoted and comma'd JSON thanks to [ALCE](https://npmjs.org/package/alce).
 
-Oh, and does the same to `bower.json` files if you've got those too. 
+Oh, and can do same if you pass it a `bower.json` file or whatnot.
 
 ## Usage
 
@@ -97,7 +97,7 @@ The available options and their defaults shown below:
     // if you set quiet to true it won't do output anything to the console
     quiet: false,
     // files to scrub
-    files: ['package.json', 'bower.json']
+    files: ['package.json']
 }
 
 ```
