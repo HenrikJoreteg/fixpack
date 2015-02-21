@@ -10,6 +10,7 @@
   "dependencies": {
     "alce": "1.0.0",
     "colors": "*",
+    "extend-object": "^1.0.0",
     "rc": "^0.6.0"
   },
   "homepage": "https://github.com/henrikjoreteg/fixpack",

@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 var fs = require('fs');
+var path = require('path');
 var ALCE = require('alce');
+var defaultConfig = require('./config');
+var extend = require('extend-object');
 require('colors');
 
 
@@ -15,10 +18,10 @@ function checkMissing(pack, config) {
         required = config.required;
     }
     required.forEach(function (key) {
-        if (!pack[key]) throw new Error('package.json files must have a ' + key);
+        if (!pack[key]) throw new Error(config.fileName + ' files must have a ' + key);
     });
     warnItems.forEach(function (key) {
-        if (!pack[key] && !log) console.log(('missing ' + key).yellow);
+        if (!pack[key] && !config.quiet) console.log(('missing ' + key).yellow);
     });
 }
 
@@ -36,10 +39,12 @@ function sortAlphabetically(object) {
 }
 
 module.exports = function (file, config) {
+    config = extend(defaultConfig, config || {});
     if (!fs.existsSync(file)) {
         if (!config.quiet) console.log(('No such file: ' + file).red);
         process.exit(1);
     }
+    config.fileName = path.basename(file);
     var original = fs.readFileSync(file, {encoding: 'utf8'});
     var pack = ALCE.parse(original);
     var out = {};
@@ -73,8 +78,8 @@ module.exports = function (file, config) {
 
     if (outputString !== original) {
         fs.writeFileSync(file, outputString, {encoding: 'utf8'});
-        if (!config.quiet) console.log('package.json'.bold + ' fixed'.green + '!');
+        if (!config.quiet) console.log(config.fileName.bold + ' fixed'.green + '!');
     } else {
-        if (!config.quiet) console.log('package.json'.bold + ' already clean'.green + '!');
+        if (!config.quiet) console.log(config.fileName.bold + ' already clean'.green + '!');
     }
 };

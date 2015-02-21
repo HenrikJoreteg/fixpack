@@ -1,13 +1,15 @@
 #!/usr/bin/env node
 var fixpack = require('../fixpack');
-var config = require('rc')('fixpack', {
-    sortToTop: ['name', 'description', 'version', 'author'],
-    required: ['name', 'version'],
-    warn: ['description', 'author', 'repository', 'keywords', 'main', 'bugs', 'homepage', 'license'],
-    requiredOnPrivate: [],
-    warnOnPrivate: ['name', 'version', 'description', 'main'],
-    sortedSubItems: ['dependencies', 'devDependencies', 'jshintConfig', 'scripts', 'keywords'],
-    quiet: false
+var path = require('path');
+var defaultConfig = require('../config');
+var config = require('rc')('fixpack', defaultConfig);
+var files = config._;
+
+if (files.length) {
+    config.files = files;
+}
+
+config.files.forEach(function (file) {
+    fixpack(path.resolve(file), config);
 });
 
-fixpack(process.cwd() + '/package.json', config);

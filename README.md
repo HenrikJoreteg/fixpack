@@ -27,6 +27,8 @@ Fix all indenting to 2 spaces.
 
 Oh, and it will tolerate improperly quoted and comma'd JSON thanks to [ALCE](https://npmjs.org/package/alce).
 
+Oh, and does the same to `bower.json` files if you've got those too. 
+
 ## Usage
 
 1. install it globally
@@ -93,14 +95,16 @@ The available options and their defaults shown below:
         'keywords'
     ],
     // if you set quiet to true it won't do output anything to the console
-    quiet: false   
+    quiet: false,
+    // files to scrub
+    files: ['package.json', 'bower.json']
 }
 
 ```
 
 ## Changelog
 
-- 1.3.0 - configurable via `.fixpackrc` 
+- 2.0.0 - configurable via `.fixpackrc` file using rc module.
 - x.x.x - unknown miscellaneous madness and poor version tracking
 - 0.0.2 [diff](https://github.com/HenrikJoreteg/fixpack/compare/v0.0.1...v0.0.2) - EOF newline
 - 0.0.1 - initial release
