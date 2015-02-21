@@ -26,8 +26,12 @@ function sortObjectKeysAlphabetically(object) {
 }
 
 module.exports = function (file, log) {
-    var out = {};
+    if (!fs.existsSync(file)) {
+        console.log(('No such file: ' + file).red);
+        process.exit(1);
+    }
     var pack = ALCE.parse(fs.readFileSync(file, {encoding: 'utf8'}));
+    var out = {};
     var key;
 
     // make sure we have everything
