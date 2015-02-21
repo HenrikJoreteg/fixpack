@@ -1,4 +1,13 @@
 #!/usr/bin/env node
 var fixpack = require('../fixpack');
+var config = require('rc')('fixpack', {
+    sortToTop: ['name', 'description', 'version', 'author'],
+    required: ['name', 'version'],
+    warn: ['description', 'author', 'repository', 'keywords', 'main', 'bugs', 'homepage', 'license'],
+    requiredOnPrivate: [],
+    warnOnPrivate: ['name', 'version', 'description', 'main'],
+    sortedSubItems: ['dependencies', 'devDependencies', 'jshintConfig', 'scripts', 'keywords'],
+    quiet: false
+});
 
-fixpack(process.cwd() + '/package.json', true);
+fixpack(process.cwd() + '/package.json', config);

@@ -9,12 +9,13 @@
   },
   "dependencies": {
     "alce": "1.0.0",
-    "colors": "*"
+    "colors": "*",
+    "rc": "^0.6.0"
   },
   "homepage": "https://github.com/henrikjoreteg/fixpack",
   "keywords": [
-    "package",
-    "cleanup"
+    "cleanup",
+    "package"
   ],
   "license": "MIT",
   "main": "fixpack.js",
