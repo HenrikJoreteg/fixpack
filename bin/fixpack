@@ -1,15 +1,14 @@
 #!/usr/bin/env node
-var fixpack = require('../fixpack');
-var path = require('path');
-var defaultConfig = require('../config');
-var config = require('rc')('fixpack', defaultConfig);
-var files = config._;
+var fixpack = require('../fixpack')
+var path = require('path')
+var defaultConfig = require('../config')
+var config = require('rc')('fixpack', defaultConfig)
+var files = config._
 
 if (files.length) {
-    config.files = files;
+  config.files = files
 }
 
 config.files.forEach(function (file) {
-    fixpack(path.resolve(file), config);
-});
-
+  fixpack(path.resolve(file), config)
+})

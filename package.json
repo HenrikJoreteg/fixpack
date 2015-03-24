@@ -13,6 +13,9 @@
     "extend-object": "^1.0.0",
     "rc": "^0.6.0"
   },
+  "devDependencies": {
+    "standard": "^3.2.1"
+  },
   "homepage": "https://github.com/henrikjoreteg/fixpack",
   "keywords": [
     "cleanup",
@@ -26,6 +29,6 @@
     "url": "git://github.com/henrikjoreteg/fixpack"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard && standard bin/fixpack"
   }
 }
