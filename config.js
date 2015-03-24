@@ -4,7 +4,7 @@ module.exports = {
   warn: ['description', 'author', 'repository', 'keywords', 'main', 'bugs', 'homepage', 'license'],
   requiredOnPrivate: [],
   warnOnPrivate: ['name', 'version', 'description', 'main'],
-  sortedSubItems: ['dependencies', 'devDependencies', 'peerDependencies', 'jshintConfig', 'scripts', 'keywords'],
+  sortedSubItems: ['dependencies', 'devDependencies', 'peerDependencies', 'optionalDependencies', 'jshintConfig', 'scripts', 'keywords'],
   quiet: false,
   files: ['package.json']
 }
