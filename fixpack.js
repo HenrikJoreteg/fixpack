@@ -1,10 +1,11 @@
 #!/usr/bin/env node
+var ALCE = require('alce')
+var extend = require('extend-object')
 var fs = require('fs')
 var path = require('path')
-var ALCE = require('alce')
-var defaultConfig = require('./config')
-var extend = require('extend-object')
 require('colors')
+
+var defaultConfig = require('./config')
 
 function checkMissing (pack, config) {
   var warnItems
