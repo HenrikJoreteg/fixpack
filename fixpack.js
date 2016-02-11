@@ -68,6 +68,10 @@ module.exports = function (file, config) {
     out[key] = pack[key]
   }
 
+  // sometimes people use a string rather than an array for the `keywords`
+  // field when there is only one item listed
+  if (typeof out.keywords === 'string') out.keywords = [out.keywords]
+
   // sort some sub items alphabetically
   config.sortedSubItems.forEach(function (key) {
     if (out[key]) out[key] = sortAlphabetically(out[key])
