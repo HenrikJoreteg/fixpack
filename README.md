@@ -55,7 +55,7 @@ It's configurable. You can create a `.fixpackrc` file in your project or anywher
 
 Uses the [rc](https://www.npmjs.com/package/rc) module to do this. So you can pass all these as CLI args too.
 
-The available options and their defaults shown below: 
+The available options and their defaults shown below:
 
 ```js
 
@@ -97,13 +97,21 @@ The available options and their defaults shown below:
     // if you set quiet to true it won't do output anything to the console
     quiet: false,
     // files to scrub
-    files: ['package.json']
+    files: ['package.json'],
+    // Will set all deps to '*'
+    // this may be useful because then you can
+    // run npm update --save && npm update --save-dev
+    // to install latest stable releases of everything.
+    wipe: false
 }
 
 ```
 
 ## Changelog
 
+- 2.3.0 - add `wipe` option that sets all dep versions to `*` for easier bulk updating.
+- 2.2.0 - add `optionalDependencies` to auto sorted
+- 2.1.0 - switched to [standard](https://github.com/feross/standard) style. Add `peerDependencies` to default sorted keys.
 - 2.0.1 - don't error on missing bower file by default.
 - 2.0.0 - configurable via `.fixpackrc` file using rc module.
 - x.x.x - unknown miscellaneous madness and poor version tracking

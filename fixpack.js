@@ -72,6 +72,19 @@ module.exports = function (file, config) {
     if (out[key]) out[key] = sortAlphabetically(out[key])
   })
 
+  // wipe version numbers
+  if (config.wipe) {
+    var versionedKeys = ['dependencies', 'devDependencies', 'peerDependencies', 'optionalDependencies']
+    versionedKeys.forEach(function (key) {
+      const depGroup = out[key]
+      if (depGroup) {
+        for (var item in depGroup) {
+          depGroup[item] = '*'
+        }
+      }
+    })
+  }
+
   // write it out
   outputString = JSON.stringify(out, null, 2) + '\n'
 

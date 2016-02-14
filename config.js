@@ -6,5 +6,6 @@ module.exports = {
   warnOnPrivate: ['name', 'version', 'description', 'main'],
   sortedSubItems: ['dependencies', 'devDependencies', 'peerDependencies', 'optionalDependencies', 'jshintConfig', 'scripts', 'keywords'],
   quiet: false,
+  wipe: false,
   files: ['package.json']
 }
