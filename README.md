@@ -10,6 +10,7 @@ It will re-write your package.json file as follows:
 - author fourth
 - all other keys in alphabetical order
 - dependencies and devDependencies sorted alphabetically
+- scripts also sorted alphabetically, but pre/post commands are sorted before/after their matched command
 - newline at the end of the file
 
 It will warn you if any of these are missing:

@@ -38,6 +38,28 @@ function sortAlphabetically (object) {
   }
 }
 
+function sortScriptsAlphabetically (object) {
+  var pre = {}
+  var post = {}
+  var sorted = {}
+  Object.keys(object).filter(function (key) {
+    if (key.startsWith('pre')) {
+      pre[key.substring(3)] = object[key]
+      return false
+    }
+    if (key.startsWith('post')) {
+      post[key.substring(4)] = object[key]
+      return false
+    }
+    return true
+  }).sort().forEach(function (key) {
+    if (pre[key]) sorted['pre' + key] = pre[key]
+    sorted[key] = object[key]
+    if (post[key]) sorted['post' + key] = post[key]
+  })
+  return sorted
+}
+
 module.exports = function (file, config) {
   config = extend(defaultConfig, config || {})
   if (!fs.existsSync(file)) {
@@ -74,7 +96,10 @@ module.exports = function (file, config) {
 
   // sort some sub items alphabetically
   config.sortedSubItems.forEach(function (key) {
-    if (out[key]) out[key] = sortAlphabetically(out[key])
+    if (out[key]) {
+      var sorted = (key === 'scripts') ? sortScriptsAlphabetically(out[key]) : sortAlphabetically(out[key])
+      out[key] = sorted
+    }
   })
 
   // wipe version numbers
