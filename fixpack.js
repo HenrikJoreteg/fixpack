@@ -1,10 +1,11 @@
 #!/usr/bin/env node
+var ALCE = require('alce')
+var extend = require('extend-object')
 var fs = require('fs')
 var path = require('path')
-var ALCE = require('alce')
-var defaultConfig = require('./config')
-var extend = require('extend-object')
 require('colors')
+
+var defaultConfig = require('./config')
 
 function checkMissing (pack, config) {
   var warnItems
@@ -66,6 +67,10 @@ module.exports = function (file, config) {
   for (key in pack) {
     out[key] = pack[key]
   }
+
+  // sometimes people use a string rather than an array for the `keywords`
+  // field when there is only one item listed
+  if (typeof out.keywords === 'string') out.keywords = [out.keywords]
 
   // sort some sub items alphabetically
   config.sortedSubItems.forEach(function (key) {
