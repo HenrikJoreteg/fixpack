@@ -1,0 +1,19 @@
+# EditorConfig is awesome: http://EditorConfig.org
+
+# https://github.com/feross/standard
+# https://github.com/jokeyrhyme/standard-editorconfig
+
+# top-most EditorConfig file
+root = true
+
+[*]
+end_of_line = lf
+charset = utf-8
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+max_line_length = 80
+
+[{*.md,*.json}]
+max_line_length = null
