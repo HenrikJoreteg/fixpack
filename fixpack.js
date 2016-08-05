@@ -7,6 +7,8 @@ require('colors')
 
 var defaultConfig = require('./config')
 
+var EXACT_SEMVER = /^\d+\.\d+\.\d+$/
+
 function checkMissing (pack, config) {
   var warnItems
   var required
@@ -85,6 +87,18 @@ module.exports = function (file, config) {
       if (depGroup) {
         for (var item in depGroup) {
           depGroup[item] = '*'
+        }
+      }
+    })
+  }
+
+  // make exact 1.2.3 versions into inexact ^1.2.3 instead
+  if (config.inexactVersions && config.inexactVersions.length) {
+    config.inexactVersions.forEach(function (key) {
+      const depGroup = out[key]
+      for (var item in depGroup) {
+        if (EXACT_SEMVER.test(depGroup[item])) {
+          depGroup[item] = '^' + depGroup[item]
         }
       }
     })
