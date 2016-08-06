@@ -2,6 +2,10 @@
   "files": [
     "package.json"
   ],
+  "inexactVersions": [
+    "devDependencies",
+    "peerDependencies"
+  ],
   "quiet": false,
   "required": [
     "name",

@@ -10,6 +10,7 @@ It will re-write your package.json file as follows:
 - author fourth
 - all other keys in alphabetical order
 - dependencies and devDependencies sorted alphabetically
+- versions devDependencies / peerDependencies made less strict (^1.2.3)
 - newline at the end of the file
 
 It will warn you if any of these are missing:
