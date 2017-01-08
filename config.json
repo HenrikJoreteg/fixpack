@@ -2,6 +2,7 @@
   "files": [
     "package.json"
   ],
+  "indentation": "space:2",
   "quiet": false,
   "required": [
     "name",

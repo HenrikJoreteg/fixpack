@@ -90,8 +90,24 @@ module.exports = function (file, config) {
     })
   }
 
+  // determine indentation
+  var spaces = 2
+  if (config.indentation) {
+    if (config.indentation.indexOf('tab') === 0) {
+      spaces = 0
+    }
+    if (config.indentation.indexOf('space:') === 0) {
+      var n = config.indentation.substring(6).trim()
+      spaces = parseInt(n, 10)
+    }
+  }
+
   // write it out
-  outputString = JSON.stringify(out, null, 2) + '\n'
+  if (spaces) {
+    outputString = JSON.stringify(out, null, spaces) + '\n'
+  } else {
+    outputString = JSON.stringify(out, null, "\t") + '\n'
+  }
 
   if (outputString !== original) {
     fs.writeFileSync(file, outputString, {encoding: 'utf8'})
