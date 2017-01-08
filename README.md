@@ -11,6 +11,7 @@ It will re-write your package.json file as follows:
 - all other keys in alphabetical order
 - dependencies and devDependencies sorted alphabetically
 - newline at the end of the file
+- fix/normalize indentation (configurable, see below)
 
 It will warn you if any of these are missing:
 
@@ -22,8 +23,6 @@ It will warn you if any of these are missing:
 - bugs
 - homepage
 - license'
-
-Fix all indenting to 2 spaces.
 
 Oh, and it will tolerate improperly quoted and comma'd JSON thanks to [ALCE](https://npmjs.org/package/alce).
 
@@ -94,6 +93,9 @@ The available options and their defaults shown below:
         'scripts',
         'keywords'
     ],
+    // You can change the number of spaces used for indentation, or use
+    // the string "tab" to use tabulator.
+    indentation: "space:2",
     // if you set quiet to true it won't do output anything to the console
     quiet: false,
     // files to scrub
@@ -109,6 +111,7 @@ The available options and their defaults shown below:
 
 ## Changelog
 
+- 2.4.0 - add `indentation` option to control indentation formatting.
 - 2.3.0 - add `wipe` option that sets all dep versions to `*` for easier bulk updating.
 - 2.2.0 - add `optionalDependencies` to auto sorted
 - 2.1.0 - switched to [standard](https://github.com/feross/standard) style. Add `peerDependencies` to default sorted keys.
