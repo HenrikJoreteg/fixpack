@@ -111,6 +111,7 @@ The available options and their defaults shown below:
 
 ## Changelog
 
+- 2.4.0 - add `indentation` option to control indentation formatting.
 - 2.3.0 - add `wipe` option that sets all dep versions to `*` for easier bulk updating.
 - 2.2.0 - add `optionalDependencies` to auto sorted
 - 2.1.0 - switched to [standard](https://github.com/feross/standard) style. Add `peerDependencies` to default sorted keys.
