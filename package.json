@@ -9,6 +9,15 @@
   "bugs": {
     "url": "https://github.com/henrikjoreteg/fixpack/issues"
   },
+  "contributors": [
+    "Henrik Joreteg <hjoreteg@gmail.com>",
+    "Jamie Mason <jamie@foldleft.io>",
+    "Kyle Mitchell <kyle@kemitchell.com>",
+    "Kyo Nagashima <kyo@hail2u.net>",
+    "Luke Karrys <lukekarrys@gmail.com>",
+    "Nizar Khalife <Iglesias khalifenizar@gmail.com>",
+    "Sean Lang <slang800@gmail.com>"
+  ],
   "dependencies": {
     "alce": "1.0.0",
     "colors": "*",
