@@ -6,9 +6,7 @@
   "bin": {
     "fixpack": "dist/bin.js"
   },
-  "bugs": {
-    "url": "https://github.com/henrikjoreteg/fixpack/issues"
-  },
+  "bugs": "https://github.com/henrikjoreteg/fixpack/issues",
   "contributors": [
     "Henrik Joreteg <hjoreteg@gmail.com>",
     "Jamie Mason <jamie@foldleft.io>",
@@ -41,10 +39,7 @@
   "license": "MIT",
   "main": "fixpack",
   "preferGlobal": true,
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/henrikjoreteg/fixpack"
-  },
+  "repository": "henrikjoreteg/fixpack",
   "scripts": {
     "build": "babel --copy-files --out-dir ./dist --ignore node_modules ./src",
     "prebuild": "rimraf dist",
