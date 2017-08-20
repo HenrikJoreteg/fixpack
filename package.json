@@ -17,16 +17,16 @@
     "Sean Lang <slang800@gmail.com>"
   ],
   "dependencies": {
-    "alce": "1.0.0",
+    "alce": "1.2.0",
     "colors": "*",
     "extend-object": "^1.0.0",
-    "rc": "^0.6.0"
+    "rc": "^1.2.1"
   },
   "devDependencies": {
-    "babel-cli": "6.24.1",
-    "babel-preset-es2015": "6.22.0",
-    "rimraf": "2.5.4",
-    "standard": "^3.2.1"
+    "babel-cli": "6.26.0",
+    "babel-preset-es2015": "6.24.1",
+    "rimraf": "2.6.1",
+    "standard": "^10.0.3"
   },
   "files": [
     "dist"
