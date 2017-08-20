@@ -1,13 +1,15 @@
-var fixpack = require('./index')
-var path = require('path')
-var defaultConfig = require('./config.json')
-var config = require('rc')('fixpack', defaultConfig)
-var files = config._
+import path from 'path';
+import rc from 'rc';
+import defaultConfig from './config.json';
+import fixpack from './index';
+
+const config = rc('fixpack', defaultConfig);
+const files = config._;
 
 if (files.length) {
   config.files = files
 }
 
-config.files.forEach(function (file) {
+config.files.forEach(file => {
   fixpack(path.resolve(file), config)
 })
