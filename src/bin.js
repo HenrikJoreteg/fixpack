@@ -1,7 +1,6 @@
-#!/usr/bin/env node
-var fixpack = require('../fixpack')
+var fixpack = require('./index')
 var path = require('path')
-var defaultConfig = require('../config')
+var defaultConfig = require('./config.json')
 var config = require('rc')('fixpack', defaultConfig)
 var files = config._
 

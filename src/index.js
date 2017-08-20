@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 var ALCE = require('alce')
 var extend = require('extend-object')
 var fs = require('fs')
