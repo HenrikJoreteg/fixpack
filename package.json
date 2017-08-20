@@ -3,32 +3,47 @@
   "description": "cli tool that cleans up package.json files.",
   "version": "2.3.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
-  "bin": "./bin/fixpack",
-  "bugs": {
-    "url": "https://github.com/henrikjoreteg/fixpack/issues"
+  "bin": {
+    "fixpack": "dist/bin.js"
   },
+  "bugs": "https://github.com/henrikjoreteg/fixpack/issues",
+  "contributors": [
+    "Henrik Joreteg <hjoreteg@gmail.com>",
+    "Jamie Mason <jamie@foldleft.io>",
+    "Kyle Mitchell <kyle@kemitchell.com>",
+    "Kyo Nagashima <kyo@hail2u.net>",
+    "Luke Karrys <lukekarrys@gmail.com>",
+    "Nizar Khalife <Iglesias khalifenizar@gmail.com>",
+    "Sean Lang <slang800@gmail.com>"
+  ],
   "dependencies": {
-    "alce": "1.0.0",
+    "alce": "1.2.0",
     "colors": "*",
     "extend-object": "^1.0.0",
-    "rc": "^0.6.0"
+    "rc": "^1.2.1"
   },
   "devDependencies": {
-    "standard": "^3.2.1"
+    "babel-cli": "6.26.0",
+    "babel-preset-es2015": "6.24.1",
+    "rimraf": "2.6.1",
+    "standard": "^10.0.3"
   },
+  "files": [
+    "dist"
+  ],
   "homepage": "https://github.com/henrikjoreteg/fixpack",
   "keywords": [
     "cleanup",
     "package"
   ],
   "license": "MIT",
-  "main": "fixpack.js",
+  "main": "fixpack",
   "preferGlobal": true,
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/henrikjoreteg/fixpack"
-  },
+  "repository": "henrikjoreteg/fixpack",
   "scripts": {
-    "test": "standard && standard bin/fixpack"
+    "build": "babel --copy-files --out-dir ./dist --ignore node_modules ./src",
+    "prebuild": "rimraf dist",
+    "prepack": "npm run build",
+    "test": "standard src"
   }
 }
