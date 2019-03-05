@@ -1,5 +1,5 @@
 {
-  "name": "fixpack",
+  "name": "@okunishinishi/fixpack",
   "description": "cli tool that cleans up package.json files.",
   "version": "3.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
