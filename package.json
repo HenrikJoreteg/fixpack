@@ -11,7 +11,7 @@
     "alce": "1.0.0",
     "colors": "*",
     "extend-object": "^1.0.0",
-    "rc": "^0.6.0"
+    "rc": "^1.2.8"
   },
   "devDependencies": {
     "standard": "^3.2.1"
