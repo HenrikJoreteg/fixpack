@@ -3,6 +3,7 @@ var ALCE = require('alce')
 var extend = require('extend-object')
 var fs = require('fs')
 var path = require('path')
+var os = require('os')
 require('colors')
 
 var defaultConfig = require('./config')
@@ -91,7 +92,7 @@ module.exports = function (file, config) {
   }
 
   // write it out
-  outputString = JSON.stringify(out, null, 2) + '\n'
+  outputString = JSON.stringify(out, null, 2) + os.EOL
 
   if (outputString !== original) {
     fs.writeFileSync(file, outputString, {encoding: 'utf8'})
