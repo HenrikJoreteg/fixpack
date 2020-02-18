@@ -109,7 +109,7 @@ The available options and their defaults shown below:
 
 ## Changelog
 
-- 3.0.2 - updates to remove NSP warnings in deps.
+- 3.0.3 - updates to remove NSP warnings in deps.
 - 2.3.0 - add `wipe` option that sets all dep versions to `*` for easier bulk updating.
 - 2.2.0 - add `optionalDependencies` to auto sorted
 - 2.1.0 - switched to [standard](https://github.com/feross/standard) style. Add `peerDependencies` to default sorted keys.
