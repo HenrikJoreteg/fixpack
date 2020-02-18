@@ -1,11 +1,14 @@
 #!/usr/bin/env node
-var ALCE = require('alce')
-var extend = require('extend-object')
-var fs = require('fs')
-var path = require('path')
-require('colors')
 
-var defaultConfig = require('./config')
+'use strict'
+
+const ALCE = require('alce')
+const extend = require('extend-object')
+const fs = require('fs')
+const path = require('path')
+const chalk = require('chalk')
+
+const defaultConfig = require('./config')
 
 function checkMissing (pack, config) {
   var warnItems
@@ -45,7 +48,7 @@ module.exports = function (file, config) {
     process.exit(1)
   }
   config.fileName = path.basename(file)
-  var original = fs.readFileSync(file, {encoding: 'utf8'})
+  var original = fs.readFileSync(file, { encoding: 'utf8' })
   var pack = ALCE.parse(original)
   var out = {}
   var outputString = ''
@@ -94,9 +97,9 @@ module.exports = function (file, config) {
   outputString = JSON.stringify(out, null, 2) + '\n'
 
   if (outputString !== original) {
-    fs.writeFileSync(file, outputString, {encoding: 'utf8'})
-    if (!config.quiet) console.log(config.fileName.bold + ' fixed'.green + '!')
+    fs.writeFileSync(file, outputString, { encoding: 'utf8' })
+    if (!config.quiet) console.log(chalk.bold(config.fileName) + chalk.green(' fixed') + '!')
   } else {
-    if (!config.quiet) console.log(config.fileName.bold + ' already clean'.green + '!')
+    if (!config.quiet) console.log(chalk.bold(config.fileName) + chalk.green(' already clean') + '!')
   }
 }
