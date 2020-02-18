@@ -2,6 +2,7 @@
 
 'use strict'
 
+const os = require('os')
 const ALCE = require('alce')
 const fs = require('fs')
 const path = require('path')
@@ -101,16 +102,18 @@ module.exports = function(file, config) {
   }
 
   // write it out
-  outputString = JSON.stringify(out, null, 2) + '\n'
+  outputString = JSON.stringify(out, null, 2) + os.EOL
 
   if (outputString !== original) {
     fs.writeFileSync(file, outputString, { encoding: 'utf8' })
-    if (!config.quiet)
+    if (!config.quiet) {
       console.log(chalk.bold(config.fileName) + chalk.green(' fixed') + '!')
+    }
   } else {
-    if (!config.quiet)
+    if (!config.quiet) {
       console.log(
         chalk.bold(config.fileName) + chalk.green(' already clean') + '!'
       )
+    }
   }
 }
