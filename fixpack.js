@@ -25,7 +25,7 @@ function checkMissing(pack, config) {
       throw new Error(config.fileName + ' files must have a ' + key)
   })
   warnItems.forEach(function(key) {
-    if (!pack[key] && !config.quiet) console.log(('missing ' + key).yellow)
+    if (!pack[key] && !config.quiet) console.log(chalk.yellow('missing ' + key))
   })
 }
 
@@ -47,7 +47,7 @@ function sortAlphabetically(object) {
 module.exports = function(file, config) {
   config = Object.assign(defaultConfig, config || {})
   if (!fs.existsSync(file)) {
-    if (!config.quiet) console.log(('No such file: ' + file).red)
+    if (!config.quiet) console.log(chalk.red('No such file: ' + file))
     process.exit(1)
   }
   config.fileName = path.basename(file)
