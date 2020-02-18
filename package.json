@@ -1,5 +1,5 @@
 {
-  "name": "@okunishinishi/fixpack",
+  "name": "fixpack",
   "description": "cli tool that cleans up package.json files.",
   "version": "3.0.1",
   "author": "Henrik Joreteg <henrik@andyet.net>",
@@ -15,7 +15,7 @@
     "rc": "^1.2.8"
   },
   "devDependencies": {
-    "standard": "^3.2.1"
+    "standard": "14.3.1"
   },
   "homepage": "https://github.com/henrikjoreteg/fixpack",
   "keywords": [
@@ -25,6 +25,10 @@
   "license": "MIT",
   "main": "fixpack.js",
   "preferGlobal": true,
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/henrikjoreteg/fixpack"
