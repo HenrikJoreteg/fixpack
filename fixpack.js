@@ -21,11 +21,11 @@ function checkMissing(pack, config) {
     required = config.required
   }
   required.forEach(function(key) {
-    if (!pack[key])
+    if (pack[key] == null)
       throw new Error(config.fileName + ' files must have a ' + key)
   })
   warnItems.forEach(function(key) {
-    if (!pack[key] && !config.quiet) console.log(chalk.yellow('missing ' + key))
+    if (pack[key] == null && !config.quiet) console.log(chalk.yellow('missing ' + key))
   })
 }
 
@@ -62,7 +62,7 @@ module.exports = function(file, config) {
 
   // handle the specific ones we want, then remove
   config.sortToTop.forEach(function(key) {
-    if (pack[key]) out[key] = pack[key]
+    if (pack[key] != null) out[key] = pack[key]
     delete pack[key]
   })
 
@@ -80,7 +80,7 @@ module.exports = function(file, config) {
 
   // sort some sub items alphabetically
   config.sortedSubItems.forEach(function(key) {
-    if (out[key]) out[key] = sortAlphabetically(out[key])
+    if (out[key] != null) out[key] = sortAlphabetically(out[key])
   })
 
   // wipe version numbers
