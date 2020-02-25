@@ -2,7 +2,6 @@
 
 'use strict'
 
-const os = require('os')
 const ALCE = require('alce')
 const fs = require('fs')
 const path = require('path')
