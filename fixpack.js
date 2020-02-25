@@ -57,9 +57,18 @@ module.exports = function(file, config) {
   }
   config.fileName = path.basename(file)
   const original = fs.readFileSync(file, { encoding: 'utf8' })
-  const indent = detectIndent(original).indent
-  const newLine = detectNewline(original)
-  const finalNewline = /\n$/.test(original)
+  const indent = config.indent != null
+    ? config.indent
+    : detectIndent(original).indent
+  const newLine = config.newLine != null
+    ? (
+      config.newLine === 'CRLF'
+        ? CRLF
+        : LF
+    ) : detectNewline(original) 
+  const finalNewLine = config.finalNewLine != null
+    ? !!config.finalNewLine
+    : /\n$/.test(original)
   const out = {}
   let pack = ALCE.parse(original)
   let outputString = ''
@@ -113,9 +122,9 @@ module.exports = function(file, config) {
   outputString = JSON.stringify(out, null, indent)
 
   if (newLine === CRLF) {
-    outputString = outputString.replace(/\n/g, CRLF) + (finalNewline ? CRLF : '')
+    outputString = outputString.replace(/\n/g, CRLF) + (finalNewLine ? CRLF : '')
   } else {
-    outputString = outputString + (finalNewline ? LF : '')
+    outputString = outputString + (finalNewLine ? LF : '')
   }
 
   if (outputString !== original) {
