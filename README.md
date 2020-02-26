@@ -109,6 +109,7 @@ The available options and their defaults shown below:
 
 ## Changelog
 
+- 3.0.6 - Fix `false` removal issue.
 - 3.0.5 - Fix coloration of warnings
 - 3.0.4 - OS specific EOL
 - 3.0.3 - updates to remove NSP warnings in deps.
