@@ -23,7 +23,8 @@ It will warn you if any of these are missing:
 - homepage
 - license'
 
-Fix all indenting to 2 spaces.
+Maintain current indentation, End of Line, and Final New Line, or set them to your configured value
+(see [configuration](#configuration)).
 
 Oh, and it will tolerate improperly quoted and comma'd JSON thanks to [ALCE](https://npmjs.org/package/alce).
 
@@ -102,7 +103,17 @@ The available options and their defaults shown below:
     // this may be useful because then you can
     // run npm update --save && npm update --save-dev
     // to install latest stable releases of everything.
-    wipe: false
+    wipe: false,
+    // Sets the expected indentation. If number, is number of spaces,
+    // otherwise can be string to use as indentation (like a tab).
+    // if undefined/null (default), indentation is detected from file and preserved.
+    indent: null,
+    // Sets line endings to be either "LF" or "CRLF"
+    // if undefined/null (default), newLine is detected from file and preserved.
+    newLine: null,
+    // Boolean if there should be an empty line at the end of the file.
+    // if undefined/null (default), finalNewLine is detected from file and preserved.
+    finalNewLine: null
 }
 
 ```

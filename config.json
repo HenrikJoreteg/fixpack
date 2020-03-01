@@ -39,5 +39,8 @@
     "description",
     "main"
   ],
-  "wipe": false
+  "wipe": false,
+  "indent": null,
+  "newLine": null,
+  "finalNewLine": null
 }

@@ -2,13 +2,17 @@
 
 'use strict'
 
-const os = require('os')
 const ALCE = require('alce')
 const fs = require('fs')
 const path = require('path')
 const chalk = require('chalk')
+const detectIndent = require('detect-indent')
+const detectNewline = require('detect-newline')
 
 const defaultConfig = require('./config')
+
+const CRLF = '\r\n';
+const LF = '\n';
 
 function checkMissing(pack, config) {
   let warnItems
@@ -52,6 +56,18 @@ module.exports = function(file, config) {
   }
   config.fileName = path.basename(file)
   const original = fs.readFileSync(file, { encoding: 'utf8' })
+  const indent = config.indent != null
+    ? config.indent
+    : detectIndent(original).indent
+  const newLine = config.newLine != null
+    ? (
+      config.newLine === 'CRLF'
+        ? CRLF
+        : LF
+    ) : detectNewline(original) 
+  const finalNewLine = config.finalNewLine != null
+    ? !!config.finalNewLine
+    : /\n$/.test(original)
   const out = {}
   let pack = ALCE.parse(original)
   let outputString = ''
@@ -102,7 +118,13 @@ module.exports = function(file, config) {
   }
 
   // write it out
-  outputString = JSON.stringify(out, null, 2) + os.EOL
+  outputString = JSON.stringify(out, null, indent)
+
+  if (newLine === CRLF) {
+    outputString = outputString.replace(/\n/g, CRLF) + (finalNewLine ? CRLF : '')
+  } else {
+    outputString = outputString + (finalNewLine ? LF : '')
+  }
 
   if (outputString !== original) {
     fs.writeFileSync(file, outputString, { encoding: 'utf8' })
