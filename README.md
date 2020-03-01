@@ -106,14 +106,14 @@ The available options and their defaults shown below:
     wipe: false,
     // Sets the expected indentation. If number, is number of spaces,
     // otherwise can be string to use as indentation (like a tab).
-    // if undefined (default), indentation is detected from file and preserved.
-    indent: 2,
+    // if undefined/null (default), indentation is detected from file and preserved.
+    indent: null,
     // Sets line endings to be either "LF" or "CRLF"
-    // if undefined (default), newLine is detected from file and preserved.
-    newLine: "LF",
+    // if undefined/null (default), newLine is detected from file and preserved.
+    newLine: null,
     // Boolean if there should be an empty line at the end of the file.
-    // if undefined (default), finalNewLine is detected from file and preserved.
-    finalNewLine: true
+    // if undefined/null (default), finalNewLine is detected from file and preserved.
+    finalNewLine: null
 }
 
 ```
