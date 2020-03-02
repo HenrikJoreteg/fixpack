@@ -11,8 +11,8 @@ const detectNewline = require('detect-newline')
 
 const defaultConfig = require('./config')
 
-const CRLF = '\r\n';
-const LF = '\n';
+const CRLF = '\r\n'
+const LF = '\n'
 
 function checkMissing (pack, config) {
   let warnItems
@@ -63,7 +63,7 @@ module.exports = function (file, config) {
       config.newLine === 'CRLF'
         ? CRLF
         : LF
-    ) : detectNewline(original) 
+    ) : detectNewline(original)
   const finalNewLine = config.finalNewLine != null
     ? !!config.finalNewLine
     : /\n$/.test(original)
