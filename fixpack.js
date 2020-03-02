@@ -14,7 +14,7 @@ const defaultConfig = require('./config')
 const CRLF = '\r\n';
 const LF = '\n';
 
-function checkMissing(pack, config) {
+function checkMissing (pack, config) {
   let warnItems
   let required
   if (pack.private) {
@@ -24,16 +24,15 @@ function checkMissing(pack, config) {
     warnItems = config.warn
     required = config.required
   }
-  required.forEach(function(key) {
-    if (pack[key] == null)
-      throw new Error(config.fileName + ' files must have a ' + key)
+  required.forEach(function (key) {
+    if (pack[key] == null) { throw new Error(config.fileName + ' files must have a ' + key) }
   })
-  warnItems.forEach(function(key) {
+  warnItems.forEach(function (key) {
     if (pack[key] == null && !config.quiet) console.log(chalk.yellow('missing ' + key))
   })
 }
 
-function sortAlphabetically(object) {
+function sortAlphabetically (object) {
   if (Array.isArray(object)) {
     object.sort()
     return object
@@ -41,14 +40,14 @@ function sortAlphabetically(object) {
     const sorted = {}
     Object.keys(object)
       .sort()
-      .forEach(function(key) {
+      .forEach(function (key) {
         sorted[key] = object[key]
       })
     return sorted
   }
 }
 
-module.exports = function(file, config) {
+module.exports = function (file, config) {
   config = Object.assign(defaultConfig, config || {})
   if (!fs.existsSync(file)) {
     if (!config.quiet) console.log(chalk.red('No such file: ' + file))
@@ -77,7 +76,7 @@ module.exports = function(file, config) {
   checkMissing(pack, config)
 
   // handle the specific ones we want, then remove
-  config.sortToTop.forEach(function(key) {
+  config.sortToTop.forEach(function (key) {
     if (pack[key] != null) out[key] = pack[key]
     delete pack[key]
   })
@@ -95,7 +94,7 @@ module.exports = function(file, config) {
   if (typeof out.keywords === 'string') out.keywords = [out.keywords]
 
   // sort some sub items alphabetically
-  config.sortedSubItems.forEach(function(key) {
+  config.sortedSubItems.forEach(function (key) {
     if (out[key] != null) out[key] = sortAlphabetically(out[key])
   })
 
@@ -107,7 +106,7 @@ module.exports = function(file, config) {
       'peerDependencies',
       'optionalDependencies'
     ]
-    versionedKeys.forEach(function(key) {
+    versionedKeys.forEach(function (key) {
       const depGroup = out[key]
       if (depGroup) {
         for (var item in depGroup) {

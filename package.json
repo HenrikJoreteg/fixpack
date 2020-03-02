@@ -9,8 +9,8 @@
     "url": "https://github.com/henrikjoreteg/fixpack/issues"
   },
   "dependencies": {
-    "alce": "1.0.0",
-    "chalk": "^2.4.1",
+    "alce": "1.2.0",
+    "chalk": "^3.0.0",
     "detect-indent": "^6.0.0",
     "detect-newline": "^3.1.0",
     "extend-object": "^1.0.0",
