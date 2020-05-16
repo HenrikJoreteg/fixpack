@@ -21,7 +21,7 @@ It will warn you if any of these are missing:
 - main
 - bugs
 - homepage
-- license'
+- license
 
 Maintain current indentation, End of Line, and Final New Line, or set them to your configured value
 (see [configuration](#configuration)).
