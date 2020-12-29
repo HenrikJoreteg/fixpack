@@ -51,7 +51,7 @@ module.exports = function (file, config) {
   config = Object.assign(defaultConfig, config || {})
   if (!fs.existsSync(file)) {
     if (!config.quiet) console.log(chalk.red('No such file: ' + file))
-    process.exit(1)
+    return 1
   }
   config.fileName = path.basename(file)
   const original = fs.readFileSync(file, { encoding: 'utf8' })
@@ -125,16 +125,16 @@ module.exports = function (file, config) {
     outputString = outputString + (finalNewLine ? LF : '')
   }
 
-  if (outputString !== original) {
-    fs.writeFileSync(file, outputString, { encoding: 'utf8' })
-    if (!config.quiet) {
-      console.log(chalk.bold(config.fileName) + chalk.green(' fixed') + '!')
-    }
-  } else {
-    if (!config.quiet) {
-      console.log(
-        chalk.bold(config.fileName) + chalk.green(' already clean') + '!'
-      )
-    }
+  if (outputString === original) {
+    config.quiet || console.log(chalk.bold(config.fileName) + chalk.green(' already clean') + '!')
+    return 0
   }
+
+  if (config.dryRun) {
+    config.quiet || console.log(chalk.bold(config.fileName) + chalk.red(' not fixed') + '!')
+  } else {
+    fs.writeFileSync(file, outputString, { encoding: 'utf8' })
+    config.quiet || console.log(chalk.bold(config.fileName) + chalk.green(' fixed') + '!')
+  }
+  return 1
 }

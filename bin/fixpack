@@ -11,6 +11,10 @@ if (files.length) {
   config.files = files
 }
 
+let exitCode = 0
+
 config.files.forEach(function (file) {
-  fixpack(path.resolve(file), config)
+  exitCode = Math.max(exitCode, fixpack(path.resolve(file), config))
 })
+
+process.exit(exitCode)

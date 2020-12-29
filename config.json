@@ -39,6 +39,7 @@
     "description",
     "main"
   ],
+  "dryRun": false,
   "wipe": false,
   "indent": null,
   "newLine": null,
