@@ -30,6 +30,8 @@ Oh, and it will tolerate improperly quoted and comma'd JSON thanks to [ALCE](htt
 
 Oh, and can do same if you pass it a `bower.json` file or whatnot.
 
+Oh, and it will exit with `0` when already fixed or with `1` otherwise (so combined with `--dryRun` flag it can be used as CI check)
+
 ## Usage
 
 1. install it globally
@@ -99,6 +101,8 @@ The available options and their defaults shown below:
     quiet: false,
     // files to scrub
     files: ['package.json'],
+    // Will not fix file, only inform if is fixed
+    dryRun: false,
     // Will set all deps to '*'
     // this may be useful because then you can
     // run npm update --save && npm update --save-dev
