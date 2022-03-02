@@ -40,6 +40,7 @@
     "main"
   ],
   "dryRun": false,
+  "preferSuccessCode": false,
   "wipe": false,
   "indent": null,
   "newLine": null,

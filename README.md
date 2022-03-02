@@ -1,6 +1,6 @@
 # fixpack
 
-A package.json file scrubber for the truly insane.
+A `package.json` file scrubber for the truly insane.
 
 It will re-write your package.json file as follows:
 
@@ -34,22 +34,27 @@ Oh, and it will exit with `0` when already fixed or with `1` otherwise (so combi
 
 ## Usage
 
-1. install it globally
-
-```
+1. Install it (locally or globally).
+```shell
 npm i -g fixpack
 ```
 
-2. run it in the same directory as your package.json, that's it.
-
-```
+2. Run it in the same directory as your package.json, that's it.
+```shell
 fixpack
 ```
 
 ## What you might do if you're clever
 
-```
+Run it immediately after modifying `package.json`.
+```shell
 npm i cool_package --save && fixpack
+```
+
+Or, run it as a pre-commit hook (e.g., with [Husky](https://typicode.github.io/husky/#/) and/or [lint-staged](https://www.npmjs.com/package/lint-staged)).
+```shell
+# pre-commit
+npx fixpack
 ```
 
 ## Configuration
@@ -103,6 +108,10 @@ The available options and their defaults shown below:
     files: ['package.json'],
     // Will not fix file, only inform if is fixed
     dryRun: false,
+    // Returns a success code if the file is fine or if it
+    // was successfully fixed, allowing for easier automation.
+    // Still returns an error code for irrecoverable failures. 
+    preferSuccessCode: false,
     // Will set all deps to '*'
     // this may be useful because then you can
     // run npm update --save && npm update --save-dev
@@ -124,6 +133,7 @@ The available options and their defaults shown below:
 
 ## Changelog
 
+- 4.1.0 - Add `preferSuccessCode` option, updated `package-lock.json` version.
 - 3.0.6 - Fix `false` removal issue.
 - 3.0.5 - Fix coloration of warnings
 - 3.0.4 - OS specific EOL
