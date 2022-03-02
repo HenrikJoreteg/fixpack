@@ -136,5 +136,5 @@ module.exports = function (file, config) {
     fs.writeFileSync(file, outputString, { encoding: 'utf8' })
     config.quiet || console.log(chalk.bold(config.fileName) + chalk.green(' fixed') + '!')
   }
-  return 1
+  return config.preferSuccessCode ? 0 : 1
 }
